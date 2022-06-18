@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege">
+    <sys_scope_privilege action="INSERT_OR_UPDATE">
+        <operation>execute</operation>
+        <source_scope display_value="NeedIt Virtual Agent Conversations">cd9c89ca970811103b2cb0efe153afcc</source_scope>
+        <status>allowed</status>
+        <sys_class_name>sys_scope_privilege</sys_class_name>
+        <sys_created_by>susan.sellmeyer</sys_created_by>
+        <sys_created_on>2022-06-18 16:55:11</sys_created_on>
+        <sys_id>9c77342f97c011103b2cb0efe153af33</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>SystemScriptObject.isLiveAgentAvailable</sys_name>
+        <sys_package display_value="NeedIt Virtual Agent Conversations" source="x_793767_needit_vi">cd9c89ca970811103b2cb0efe153afcc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt Virtual Agent Conversations">cd9c89ca970811103b2cb0efe153afcc</sys_scope>
+        <sys_update_name>sys_scope_privilege_9c77342f97c011103b2cb0efe153af33</sys_update_name>
+        <sys_updated_by>susan.sellmeyer</sys_updated_by>
+        <sys_updated_on>2022-06-18 16:55:11</sys_updated_on>
+        <target_name>SystemScriptObject.isLiveAgentAvailable</target_name>
+        <target_scope display_value="Global">global</target_scope>
+        <target_type>scriptable</target_type>
+    </sys_scope_privilege>
+</record_update>
