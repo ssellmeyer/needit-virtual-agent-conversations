@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_message">
+    <sys_ui_message action="INSERT_OR_UPDATE">
+        <application>Virtual Agent</application>
+        <code/>
+        <commented_message/>
+        <key>have a great day!!</key>
+        <language>en</language>
+        <message>Have a GREAT Day!!</message>
+        <sys_class_name>sys_ui_message</sys_class_name>
+        <sys_created_by>susan.sellmeyer</sys_created_by>
+        <sys_created_on>2022-07-17 02:20:42</sys_created_on>
+        <sys_id>d1650760977411103b2cb0efe153afab</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>have a great day!!</sys_name>
+        <sys_package display_value="NeedIt Virtual Agent Conversations" source="x_793767_needit_vi">cd9c89ca970811103b2cb0efe153afcc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt Virtual Agent Conversations">cd9c89ca970811103b2cb0efe153afcc</sys_scope>
+        <sys_update_name>sys_ui_message_d1650760977411103b2cb0efe153afab</sys_update_name>
+        <sys_updated_by>susan.sellmeyer</sys_updated_by>
+        <sys_updated_on>2022-07-17 02:20:42</sys_updated_on>
+    </sys_ui_message>
+</record_update>

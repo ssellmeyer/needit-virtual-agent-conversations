@@ -9,7 +9,210 @@
         <description>Topic allows users to view their open NeedIt records</description>
         <expose_on_palette>false</expose_on_palette>
         <flexible_conversation_switching>false</flexible_conversation_switching>
-        <graph>{"graph_api_version":"1.0.39","variables":{"9aef6b79c8db4dd5a1e96c73fe375f51":{"id":"9aef6b79c8db4dd5a1e96c73fe375f51","name":"LiveAgent_application","value":{"mode":"simple","value":null},"varType":"script","category":"vaVars"}},"goals":{"primary":{"id":"primary","trigger":{"type":"primary"},"name":"primary","applicability":"","description":"","nodes":{"37e2daef3acd420c9f8d4a4f5e0e1f93":{"id":"37e2daef3acd420c9f8d4a4f5e0e1f93","stepType":"Start","name":"Start","greetingResponse":{"mode":"simple","value":""}},"c3b7a71e5107477cb953e52f65c7fd02":{"id":"c3b7a71e5107477cb953e52f65c7fd02","stepType":"TerminateGoal","name":"End","confirmationMessage":{"mode":"simple","value":""}}},"edges":[{"id":"55700793ccc14b1eae7a757bd96844b6","edgeType":"Edge","source":"37e2daef3acd420c9f8d4a4f5e0e1f93","target":"c3b7a71e5107477cb953e52f65c7fd02","sourcePort":"","targetPort":""}]}}}</graph>
+        <graph>{
+  "graph_api_version": "1.0.39",
+  "goals": {
+    "primary": {
+      "id": "primary",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "37e2daef3acd420c9f8d4a4f5e0e1f93": {
+          "id": "37e2daef3acd420c9f8d4a4f5e0e1f93",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Sure I can help with this request."
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          }
+        },
+        "c3b7a71e5107477cb953e52f65c7fd02": {
+          "id": "c3b7a71e5107477cb953e52f65c7fd02",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Have a GREAT Day!! "
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          }
+        },
+        "0539cc7ed5ed477b99599363c248db0d": {
+          "stepType": "ReferenceChoicePrompt",
+          "name": "Look Up Needit Records",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Here are your Open NeedIt Records"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "352e9396f3274025adaa11af3e5be2a6",
+          "id": "0539cc7ed5ed477b99599363c248db0d",
+          "mode": "glide_record",
+          "script": "",
+          "metadataScript": "",
+          "cardData": {},
+          "noRecordsResponseMsg": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Sorry you have no Open NeedIt Records"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "condition": {
+            "mode": "glide_query",
+            "value": "active=true^sys_class_name=x_58872_needit_needit^u_requested_for={{vaInputs.user}}"
+          },
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false
+        },
+        "3b800d79cb5d412ebd454dd2869cc0fe": {
+          "id": "3b800d79cb5d412ebd454dd2869cc0fe",
+          "stepType": "RecordOutput",
+          "name": "NeedIt Card",
+          "variableId": "352e9396f3274025adaa11af3e5be2a6",
+          "cardTemplate": "General",
+          "cardFields": {},
+          "mode": "variable",
+          "tableName": "x_58872_needit_needit",
+          "fields": [
+            "priority",
+            "short_description",
+            "description",
+            "u_when_needed"
+          ],
+          "cardDefinition": {
+            "name": "Record",
+            "value": "General"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "condition": {
+            "mode": "glide_query",
+            "value": ""
+          }
+        }
+      },
+      "edges": [
+        {
+          "id": "55700793ccc14b1eae7a757bd96844b6",
+          "edgeType": "Edge",
+          "source": "37e2daef3acd420c9f8d4a4f5e0e1f93",
+          "target": "0539cc7ed5ed477b99599363c248db0d",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "0b5532db842f42f39385cdfcdebfb30d",
+          "edgeType": "Edge",
+          "source": "0539cc7ed5ed477b99599363c248db0d",
+          "target": "3b800d79cb5d412ebd454dd2869cc0fe",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "a3ccf2ec956342a59e82f4830374a82e",
+          "edgeType": "Edge",
+          "source": "3b800d79cb5d412ebd454dd2869cc0fe",
+          "target": "c3b7a71e5107477cb953e52f65c7fd02",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "9aef6b79c8db4dd5a1e96c73fe375f51": {
+      "id": "9aef6b79c8db4dd5a1e96c73fe375f51",
+      "name": "LiveAgent_application",
+      "value": {
+        "mode": "simple",
+        "value": null
+      },
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "352e9396f3274025adaa11af3e5be2a6": {
+      "id": "352e9396f3274025adaa11af3e5be2a6",
+      "name": "look_up_needit_records",
+      "label": "Look Up Needit Records",
+      "varType": "reference",
+      "table": "x_58872_needit_needit",
+      "category": "vaInputs"
+    }
+  }
+}</graph>
         <key_phrases>View Open NeedIt Records,NeedIt Request,need something</key_phrases>
         <library>false</library>
         <live_agent>false</live_agent>
@@ -21,6 +224,7 @@
         <nlu_provider/>
         <palette_label/>
         <roles/>
+        <root_topic_id/>
         <secure_custom_input_control>false</secure_custom_input_control>
         <source_topic_id/>
         <sys_class_name>sys_cb_topic</sys_class_name>
@@ -28,14 +232,14 @@
         <sys_created_on>2022-06-14 02:45:15</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>438ecd06974811103b2cb0efe153af34</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>19</sys_mod_count>
         <sys_name>View Open NeedIt Records</sys_name>
         <sys_package display_value="NeedIt Virtual Agent Conversations" source="x_793767_needit_vi">cd9c89ca970811103b2cb0efe153afcc</sys_package>
         <sys_policy/>
         <sys_scope display_value="NeedIt Virtual Agent Conversations">cd9c89ca970811103b2cb0efe153afcc</sys_scope>
         <sys_update_name>sys_cb_topic_438ecd06974811103b2cb0efe153af34</sys_update_name>
         <sys_updated_by>susan.sellmeyer</sys_updated_by>
-        <sys_updated_on>2022-06-14 02:45:15</sys_updated_on>
+        <sys_updated_on>2022-07-17 02:59:20</sys_updated_on>
         <triggerable_by_notification>false</triggerable_by_notification>
         <type>STANDARD</type>
         <variables/>

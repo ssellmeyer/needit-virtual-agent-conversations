@@ -111,7 +111,7 @@
           "stepType": "Prompt",
           "name": "Confirm NeedIt Type",
           "prompt": {
-            "value": "(function execute() {\n      // Return the display value (Label) for the needit_type choice\n      return 'You selected: ' + vaInputs.needit_type.getDisplayValue();\n  })()\n",
+            "value": "(function execute() {\n      // Return the display value (Label) for the needit_type choice\n      return 'Did you select?: ' + vaInputs.needit_type.getDisplayValue();\n  })()\n",
             "mode": "script"
           },
           "confirmMessage": {
@@ -326,19 +326,6 @@
           "skipIfFulfilled": false,
           "variableId": "8386d8c2cfb44fb5ba9c57d6f45203e0"
         },
-        "215009fa8efb4ed09b049c44719681a3": {
-          "id": "215009fa8efb4ed09b049c44719681a3",
-          "stepType": "CrudAction",
-          "name": "Change When Needed Date",
-          "template": "u_when_needed={{vaInputs.new_when_needed_date}}",
-          "mode": "update",
-          "record": "739882cf49b2411281b81a409d6f4eb1",
-          "applicability": {
-            "value": "",
-            "mode": "query"
-          },
-          "variableId": "2ecbd736f0d64a09990a4fe88fdc6c7d"
-        },
         "02d1905e0cea4f5389b46966351dca03": {
           "id": "02d1905e0cea4f5389b46966351dca03",
           "stepType": "RecordOutput",
@@ -402,14 +389,27 @@
             "mode": "script",
             "value": "(function execute() {\n      // If Live Chat is available, return true\n      // otherwise, return false\n      if (vaSystem.isLiveAgentAvailable()){\n          return true;\n      } else {\n          return false;\n      }\n  })()"
           }
+        },
+        "469460f1143c4fd0b375c5c0af734e46": {
+          "id": "469460f1143c4fd0b375c5c0af734e46",
+          "stepType": "CrudAction",
+          "name": "Change When Needed Date",
+          "template": "u_when_needed={{vaInputs.new_when_needed_date}}",
+          "mode": "update",
+          "record": "739882cf49b2411281b81a409d6f4eb1",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "variableId": "ebd90471509a46509d7d55c0eb2ccf5e"
         }
       },
       "edges": [
         {
-          "id": "24790ec2280d4ba7b75ae5266db0f968",
+          "id": "bba8cd4bddc04e87bd01df083ff60271",
           "edgeType": "Edge",
-          "source": "e7e5558c86d141948899985fe34b385b",
-          "target": "215009fa8efb4ed09b049c44719681a3",
+          "source": "469460f1143c4fd0b375c5c0af734e46",
+          "target": "02d1905e0cea4f5389b46966351dca03",
           "sourcePort": "",
           "targetPort": ""
         },
@@ -471,14 +471,6 @@
           "edgeType": "Edge",
           "source": "c296e5d413274a86886f85a1d3ae6663",
           "target": "e7e5558c86d141948899985fe34b385b",
-          "sourcePort": "",
-          "targetPort": ""
-        },
-        {
-          "id": "9c8d8b94e8564a46bc562e5e5994ce19",
-          "edgeType": "Edge",
-          "source": "215009fa8efb4ed09b049c44719681a3",
-          "target": "02d1905e0cea4f5389b46966351dca03",
           "sourcePort": "",
           "targetPort": ""
         },
@@ -550,6 +542,14 @@
           "edgeType": "Edge",
           "source": "4fc7a24b33e9445d88daf41ab1c58250",
           "target": "3a371ffc13494d4aa43f4a87aa686576",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "24790ec2280d4ba7b75ae5266db0f968",
+          "edgeType": "Edge",
+          "source": "e7e5558c86d141948899985fe34b385b",
+          "target": "469460f1143c4fd0b375c5c0af734e46",
           "sourcePort": "",
           "targetPort": ""
         }
@@ -636,15 +636,6 @@
       "category": "vaInputs",
       "mode": "date"
     },
-    "2ecbd736f0d64a09990a4fe88fdc6c7d": {
-      "id": "2ecbd736f0d64a09990a4fe88fdc6c7d",
-      "name": "change_when_needed_date",
-      "label": "Change When Needed Date",
-      "varType": "reference",
-      "table": "",
-      "inactive": true,
-      "category": "vaInputs"
-    },
     "9dc9651fa34f46d1bdf872257349302b": {
       "id": "9dc9651fa34f46d1bdf872257349302b",
       "value": {
@@ -666,6 +657,15 @@
       "label": "Count",
       "varType": "script",
       "category": "vaVars"
+    },
+    "ebd90471509a46509d7d55c0eb2ccf5e": {
+      "id": "ebd90471509a46509d7d55c0eb2ccf5e",
+      "name": "change_when_needed_date",
+      "label": "Change When Needed Date",
+      "varType": "reference",
+      "table": "x_58872_needit_needit",
+      "inactive": true,
+      "category": "vaInputs"
     }
   }
 }</graph>
@@ -680,6 +680,7 @@
         <nlu_provider/>
         <palette_label/>
         <roles/>
+        <root_topic_id/>
         <secure_custom_input_control>false</secure_custom_input_control>
         <source_topic_id/>
         <sys_class_name>sys_cb_topic</sys_class_name>
@@ -687,14 +688,14 @@
         <sys_created_on>2022-06-14 02:48:07</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>9d3f8106974811103b2cb0efe153affc</sys_id>
-        <sys_mod_count>31</sys_mod_count>
+        <sys_mod_count>34</sys_mod_count>
         <sys_name>Update NeedIt Records</sys_name>
         <sys_package display_value="NeedIt Virtual Agent Conversations" source="x_793767_needit_vi">cd9c89ca970811103b2cb0efe153afcc</sys_package>
         <sys_policy/>
         <sys_scope display_value="NeedIt Virtual Agent Conversations">cd9c89ca970811103b2cb0efe153afcc</sys_scope>
         <sys_update_name>sys_cb_topic_9d3f8106974811103b2cb0efe153affc</sys_update_name>
         <sys_updated_by>susan.sellmeyer</sys_updated_by>
-        <sys_updated_on>2022-06-18 16:50:39</sys_updated_on>
+        <sys_updated_on>2022-07-17 02:08:34</sys_updated_on>
         <triggerable_by_notification>false</triggerable_by_notification>
         <type>STANDARD</type>
         <variables/>
